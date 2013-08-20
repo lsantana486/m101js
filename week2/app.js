@@ -40,6 +40,7 @@ MongoClient.connect('mongodb://200.26.166.241:27017/students', function(err,db) 
     */
     
     //field projection with find
+    /*
     var query = {'student_id':{$gte:10}};
     var projection = {'student_id':1,'_id':0};
     db.collection('grades').find(query,projection).toArray(function(err,docs){
@@ -51,6 +52,17 @@ MongoClient.connect('mongodb://200.26.166.241:27017/students', function(err,db) 
         });
         db.close;
     });
-     
+    */
+    
+    //using operators in query
+    var query = {'student_id':{$gte:10, $lt:20}};
+    db.collection('grades').find(query).each(function(err,doc){
+        if (err) throw err;
+        
+        if(doc===null){
+            return db.close();
+        }
+        console.dir(doc.student_id + ' ' + doc.type);
+    });
 
 });
