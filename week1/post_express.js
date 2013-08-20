@@ -1,6 +1,6 @@
-var express = require('express')
+var express = require('../node_modules/express')
   , app = express()
-  , cons = require('consolidate');
+  , cons = require('../node_modules/consolidate');
 
 app.engine('html', cons.swig);
 app.set('view engine', 'html');

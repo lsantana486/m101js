@@ -1,6 +1,6 @@
-var express = require('express')
+var express = require('../node_modules/express')
   , app = express() // Web framework to handle routing requests
-  , cons = require('consolidate'); // Templating library adapter for Express
+  , cons = require('../node_modules/consolidate'); // Templating library adapter for Express
 
 app.engine('html', cons.swig);
 app.set('view engine', 'html');

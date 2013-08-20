@@ -1,9 +1,9 @@
 var http = require('http'), //for basic http server
-    express = require('express'), //for express module to handle http server
+    express = require('../node_modules/express'), //for express module to handle http server
     app = express(), //for express module to handle http server
-    cons = require('consolidate'), //interface for express module to use template servers
-    MongoClient = require('mongodb').MongoClient, //mongodb driver for node.js
-    Server = require('mongodb').Server; //using the module server of the mongodb driver
+    cons = require('../node_modules/consolidate'), //interface for express module to use template servers
+    MongoClient = require('../node_modules/mongodb').MongoClient, //mongodb driver for node.js
+    Server = require('../node_modules/mongodb').Server; //using the module server of the mongodb driver
 
 //---------------------------------------------------------------------------------
 
@@ -80,12 +80,12 @@ console.log("Express server started");
 //---------------------------------------------------------------------------------
 
 //using express, consolidate, swig and the mongo driver
-/*
+
 app.engine('html', cons.swig); 
 app.set('view engine', 'html');
 app.set('views', __dirname + "/views");
 
-var mongoclient = new MongoClient (new Server (process.env.IP,27017,{'native_parser':true})); //setting our connection to MongoDB
+var mongoclient = new MongoClient (new Server ('200.26.166.241',27017,{'native_parser':true})); //setting our connection to MongoDB
 var db = mongoclient.db('test'); //setting the DB to use
 
 app.get('/',function(req,res){
@@ -106,7 +106,6 @@ mongoclient.open(function(err,mongoclient){ //opening the connection to mongoDB 
     app.listen(process.env.PORT);
     console.log("Express server started");
 });
-*/
 
 //
 
