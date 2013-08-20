@@ -22,7 +22,7 @@ server.listen(process.env.PORT);
 //using the mongodb driver to connect
 //Open the connection to the server
 /*
-MongoClient.connect('mongodb://' + process.env.IP + ':27017/test', function(err,db) {
+MongoClient.connect('mongodb://200.26.166.241:27017/test', function(err,db) {
     if (err) throw err;
     
     //Find one document in our collection
@@ -80,12 +80,12 @@ console.log("Express server started");
 //---------------------------------------------------------------------------------
 
 //using express, consolidate, swig and the mongo driver
-
+/*
 app.engine('html', cons.swig); 
 app.set('view engine', 'html');
 app.set('views', __dirname + "/views");
 
-var mongoclient = new MongoClient (new Server ('200.26.166.241',27017,{'native_parser':true})); //setting our connection to MongoDB
+var mongoclient = new MongoClient (new Server ("200.26.166.241",27017,{'native_parser':true})); //setting our connection to MongoDB
 var db = mongoclient.db('test'); //setting the DB to use
 
 app.get('/',function(req,res){
@@ -106,7 +106,7 @@ mongoclient.open(function(err,mongoclient){ //opening the connection to mongoDB 
     app.listen(process.env.PORT);
     console.log("Express server started");
 });
-
+*/
 //
 
 
