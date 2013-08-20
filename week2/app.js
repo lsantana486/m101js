@@ -1,6 +1,8 @@
-var MongoClient = require('../node_modules/mongodb').MongoClient; //mongodb driver for node.js
+var MongoClient = require('../node_modules/mongodb').MongoClient,
+    request = require('../node_modules/request'); 
+
     
-MongoClient.connect('mongodb://200.26.166.241:27017/students', function(err,db) {
+MongoClient.connect('mongodb://200.26.166.241:27017/course', function(err,db) {   //for the first 5 the db is students 
     if (err) throw err;
     
     
@@ -55,6 +57,7 @@ MongoClient.connect('mongodb://200.26.166.241:27017/students', function(err,db) 
     */
     
     //using operators in query
+    /*
     var query = {'student_id':{$gte:10, $lt:20}};
     db.collection('grades').find(query).each(function(err,doc){
         if (err) throw err;
@@ -63,6 +66,23 @@ MongoClient.connect('mongodb://200.26.166.241:27017/students', function(err,db) 
             return db.close();
         }
         console.dir(doc.student_id + ' ' + doc.type);
+    });
+    */
+    
+    //importing data from a external source to mongodb
+    
+    request('http://www.reddit.com/r/technology/.json',function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var obj = JSON.parse(body);
+            var stories = obj.data.children.map(function (story) { return (story.data)}); //.map this function take only the data that we want in this case "story"
+            
+            db.collection('reddit').insert(stories, function(err,data){
+                if (err) throw err;
+                console.dir(data);
+                db.close();
+            });
+            
+        }
     });
 
 });
