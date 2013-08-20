@@ -89,7 +89,7 @@ var mongoclient = new MongoClient (new Server ('200.26.166.241',27017,{'native_p
 var db = mongoclient.db('test'); //setting the DB to use
 
 app.get('/',function(req,res){
-    db.collection('coll').findOne({},function(err,doc){
+    db.collection('people').findOne({},function(err,doc){
         //setting the collection a creating the query
         res.render('hello',doc);
     });
