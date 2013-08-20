@@ -47,6 +47,7 @@ MongoClient.connect('mongodb://200.26.166.241:27017/students', function(err,db) 
         
         docs.forEach(function (doc){
             console.dir(doc);
+            console.dir(doc.student_id);
         });
         db.close;
     });
