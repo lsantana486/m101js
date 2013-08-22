@@ -29,7 +29,18 @@ function UsersDAO(db) {
         }
 
         // TODO: hw2.3
-        users.insert(user, callback);
+        users.insert(user, function (err, user) {
+            "use strict";
+
+            if (err) return callback(err, null);
+
+            if (user.length=1) {
+                //console.dir(user);
+                callback(null, user[0]);
+            } else {
+                callback(Error("Bad format for object new user"), null);
+            }
+        });
         //callback(Error("addUser Not Yet Implemented!"), null);
     }
 
@@ -62,7 +73,7 @@ function UsersDAO(db) {
         }
 
         // TODO: hw2.3
-       users.findOne({'_id': username},callback);
+       users.findOne({'_id': username},validateUserDoc);
         //callback(Error("validateLogin Not Yet Implemented!"), null);
     }
 }
