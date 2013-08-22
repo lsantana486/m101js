@@ -80,7 +80,7 @@ console.log("Express server started");
 //---------------------------------------------------------------------------------
 
 //using express, consolidate, swig and the mongo driver
-/*
+
 app.engine('html', cons.swig); 
 app.set('view engine', 'html');
 app.set('views', __dirname + "/views");
@@ -106,7 +106,7 @@ mongoclient.open(function(err,mongoclient){ //opening the connection to mongoDB 
     app.listen(process.env.PORT);
     console.log("Express server started");
 });
-*/
+
 //
 
 

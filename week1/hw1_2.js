@@ -1,8 +1,8 @@
 var MongoClient = require('../node_modules/mongodb').MongoClient,
-    crypto = require('../node_modules/crypto'),
-    assert = require('../node_modules/assert');
+    crypto = require('crypto'),
+    assert = require('assert');
 
-MongoClient.connect('mongodb://localhost:27017/m101', function(err, db) {
+MongoClient.connect('mongodb://200.26.166.241:27017/m101', function(err, db) {
     if(err) throw err;
 
     var algorithm = 'aes256';

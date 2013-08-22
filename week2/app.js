@@ -155,7 +155,7 @@ MongoClient.connect('mongodb://200.26.166.241:27017/students', function(err,db) 
     });
     */
     
-    //11.inserting a document with _i field
+    //11.inserting a document with _id field
     /*
     var doc = { '_id' : 'calvin', 'age' : 6 };
     db.collection('students').insert(doc, function(err, inserted) {
