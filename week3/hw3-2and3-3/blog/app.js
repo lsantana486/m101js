@@ -23,5 +23,5 @@ MongoClient.connect('mongodb://200.26.166.241:27017/blog', function(err, db) {
     routes(app, db);
 
     app.listen(process.env.PORT);
-    console.log('Express server listening on port ' + process.env.PORT);
+    console.log('Express server on ' + process.env.IP + ' listening on port ' + process.env.PORT);
 });

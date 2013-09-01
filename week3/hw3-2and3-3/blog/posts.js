@@ -34,8 +34,9 @@ function PostsDAO(db) {
             "use strict";
 
             if (!err) {
+                //console.dir(result[0].permalink);
                 console.log("Inserted new post");
-                return callback(null, result[0]);
+                return callback(null, result[0].permalink);
             }
 
             return callback(err, null);
@@ -92,7 +93,9 @@ function PostsDAO(db) {
         }
 
         // hw3.3 TODO
-        callback(Error("addComment NYI"), null);
+        posts.update({'permalink':permalink},{'$push':{'comments':comment}},callback);
+        
+        //callback(Error("addComment NYI"), null);
     }
 }
 
