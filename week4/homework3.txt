@@ -1,0 +1,26 @@
+Indexes:
+	{
+		"v" : 1,
+		"key" : {
+			"date" : -1
+		},
+		"ns" : "blog.posts",
+		"name" : "date_-1"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"tags" : 1
+		},
+		"ns" : "blog.posts",
+		"name" : "tags_1"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"permalink" : 1
+		},
+		"ns" : "blog.posts",
+		"name" : "permalink_1"
+	}
+
